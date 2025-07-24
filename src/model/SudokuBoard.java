@@ -4,9 +4,9 @@ public class SudokuBoard {
   private SudokuCell[][] cells = new SudokuCell[9][9];
 
   public SudokuBoard() {
-    for(int i = 0; i < 9; i++) {
-      for (int j = 0; j < 9; j++) {
-        cells[i][j] = new SudokuCell();
+    for(int row = 0; row < 9; row++) {
+      for (int col = 0; col < 9; col++) {
+        cells[row][col] = new SudokuCell();
       }
     } 
   }
