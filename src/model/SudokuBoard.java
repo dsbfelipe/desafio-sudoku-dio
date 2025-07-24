@@ -34,4 +34,24 @@ public class SudokuBoard {
       }
     }
   }
+
+  public void loadFromString(String config) {
+    String[] entries = config.split(" ");
+    for (String entry : entries) {
+        String[] parts = entry.split(";");
+        String[] pos = parts[0].split(",");
+        int row = Integer.parseInt(pos[0]);
+        int col = Integer.parseInt(pos[1]);
+
+        String[] valueFixed = parts[1].split(",");
+        int value = Integer.parseInt(valueFixed[0]);
+        boolean fixed = Boolean.parseBoolean(valueFixed[1]);
+
+        if (fixed) {
+            cells[row][col].setFixedValue(value);
+        } else {
+            cells[row][col].setPlayerValue(value);
+        }
+    }
+}
 }
